@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-     <form action="login.php" method="post">
-     	<h2>LOGIN</h2>
-     	<?php if (isset($_GET['error'])) { ?>
-     		<p class="error"><?php echo $_GET['error']; ?></p>
-     	<?php } ?>
-     	<label>Username</label>
-     	<input type="text" name="uname" placeholder="Username"><br>
 
-     	<label>Password</label>
-     	<input type="password" name="password" placeholder="Password"><br>
+	
+	<?php
 
-     	<button type="submit">Login</button>
-   
-	     
-     </form>
-</body>
-</html
+try {
+  $conn = new PDO("sqlsrv:server = tcp:fyserver1.database.windows.net,1433; Database = FYP", "azureBIS", "LokiKovex3!");
+  // set the PDO error mode to exception
+  $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo "Connected successfully";
+} catch(PDOException $e) {
+  echo "Connection failed: " . $e->getMessage();
+}
+?>
